@@ -1,3 +1,7 @@
+
+**[Check out my FOOD SUGGESTION AI HERE](https://dev.d3cr0jtmstw9u7.amplifyapp.com/)**
+
+         
          ___        ______     ____ _                 _  ___  
         / \ \      / / ___|   / ___| | ___  _   _  __| |/ _ \ 
        / _ \ \ /\ / /\___ \  | |   | |/ _ \| | | |/ _` | (_) |
