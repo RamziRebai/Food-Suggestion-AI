@@ -43,7 +43,7 @@ Resources:
       Runtime: python3.8
       Environment:
         Variables:
-          API_KEY: "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"  
+          API_KEY: "There is a key here :)"  
       Architectures:
         - x86_64
       Events:
