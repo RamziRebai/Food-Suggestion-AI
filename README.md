@@ -1,5 +1,7 @@
 
-**[Check out my FOOD SUGGESTION AI HERE](https://dev.d3cr0jtmstw9u7.amplifyapp.com/)**
+### Check out my FOOD SUGGESTION AI HERE
+[Link](https://dev.d3cr0jtmstw9u7.amplifyapp.com/)
+
 
          
          ___        ______     ____ _                 _  ___  
