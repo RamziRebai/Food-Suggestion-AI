@@ -1,0 +1,74 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  grid-maker
+
+  Sample SAM Template for grid-maker
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 60
+    MemorySize: 3008 
+
+Resources:
+
+
+  ApiGatewayApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      StageName: Prod
+      CorsConfiguration:
+        AllowOrigins:
+          - "*"
+        AllowHeaders:
+          - "*"
+        AllowMethods:
+          - POST
+        AllowCredentials: false
+      Auth:
+        Authorizers:
+          GeneralAuth:
+            IdentitySource: "$request.header.Authorization"
+            JwtConfiguration:
+              issuer: !Sub "https://cognito-idp.${AWS::Region}.amazonaws.com/eu-west-3_16bQDbo6w"
+              audience: 
+                - "2sfmvhkol6tt6qo0lpq4f7girv"
+
+  GenerateGridFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: generate_grid/
+      Handler: app.lambda_handler
+      Runtime: python3.8
+      Environment:
+        Variables:
+          API_KEY: "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"  
+      Architectures:
+        - x86_64
+      Events:
+        AddImage:
+          Type: HttpApi
+          Properties:
+            Path: /generate_grid
+            Method: post
+            ApiId: !Ref ApiGatewayApi
+            Auth:
+              Authorizer: GeneralAuth
+  
+
+Outputs:
+  Api:
+    Description: "API Gateway endpoint URL"
+    Value: !Sub "https://${ApiGatewayApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    

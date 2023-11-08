@@ -1,0 +1,11 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "sam-backend-textGen4"
+s3_bucket = "sam-app-images-us-west-2-407485616"
+s3_prefix = "sam-backend-textGen4"
+region = "eu-west-3"
+capabilities = "CAPABILITY_IAM"
+image_repositories = []
+resolve_s3 = true
